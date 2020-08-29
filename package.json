@@ -1,18 +1,21 @@
 {
   "name": "express-images",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Thomas Tastet",
   "description": "resize and crop your images just with a link",
   "main": "express-images.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express", "image", "images"],
+  "keywords": [
+    "express",
+    "image",
+    "images"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ThomasT404/express-images.git"
   },
-  "author": "Thomas Tastet",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ThomasT404/express-images/issues"

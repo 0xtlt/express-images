@@ -30,3 +30,19 @@ expressImage(app, {
 You must add the `__dirname` variable for the cache path and the folder path
 
 Just `folder`, `path` and `cache` settings are required
+
+## Handle usage
+
+To resize your image you can add : `_{width}x{height}` before your file extension like :
+`cat_500x500.jpg`  
+Height can be not defined -> `cat_500x.jpg`
+
+You can resize and crop your image : `_{width}x{height}x{cropHorizontaly}x{cropVerticaly}`  
+`cropHorizontaly` values are : `center` (default), `left` and `right`  
+`cropVerticaly` values are : `center` (default), `top` and `bottom`  
+
+`cropHorizontaly` or/and `cropVerticaly` values can be not defined
+
+examples :
+
+`cat_500x500xcenter.jpg`, `cat_500x500xcenterxbottom.jpg`, `cat_500x500xxcenter.jpg`
