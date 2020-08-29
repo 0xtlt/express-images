@@ -1,0 +1,4 @@
+pictures/*
+.cachePictures/*
+node_modules/*
+app.js

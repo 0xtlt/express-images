@@ -1,0 +1,15 @@
+{
+  "name": "express-images",
+  "version": "0.1.0",
+  "author": "Thomas Tastet",
+  "description": "resize and crop your images just with a link",
+  "main": "express-images.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["express", "image", "images"],
+  "license": "MIT",
+  "dependencies": {
+    "jimp": "^0.16.0"
+  }
+}
