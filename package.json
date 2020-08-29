@@ -8,7 +8,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["express", "image", "images"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasT404/express-images.git"
+  },
+  "author": "Thomas Tastet",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThomasT404/express-images/issues"
+  },
+  "homepage": "https://github.com/ThomasT404/express-images#readme",
   "dependencies": {
     "jimp": "^0.16.0"
   }
