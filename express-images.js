@@ -1,6 +1,15 @@
 const fs = require('fs');
 const Jimp = require('jimp');
 
+function fileExists(filename){
+  try{
+    require('fs').accessSync(filename)
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
 module.exports = (app, config = {}) => {
   let tempJson = [];
 
@@ -20,11 +29,9 @@ module.exports = (app, config = {}) => {
     throw new Error('minimal configuration is needed to work properly');
   }
 
-  fs.access(configuration.cache, function(err) {
-  if (err && err.code === 'ENOENT') {
-    fs.mkdir(configuration.cache); //Create dir in case not found
+  if(!fileExists(configuration.cache)) {
+    fs.mkdirSync(configuration.cache);
   }
-});
 
   function writeTemp() {
     fs.writeFileSync(configuration.cache + '/temp.json', JSON.stringify(tempJson));
@@ -108,7 +115,6 @@ module.exports = (app, config = {}) => {
     }
 
     if(returnSettings.height || returnSettings.width) {
-      console.log("1");
       if(!returnSettings.width){
         return res.status(404).send('error');
       }
@@ -135,8 +141,6 @@ module.exports = (app, config = {}) => {
         return res.sendFile(`${configuration.cache}/${req.params.path}`);
       }
 
-      console.log({returnSettings});
-
       if(!returnSettings.cropModeX && !returnSettings.cropModeY) {
         Jimp.read(`${configuration.folder}/${pathFile}`).then(img => {
           return img
@@ -152,12 +156,6 @@ module.exports = (app, config = {}) => {
             }); // save
         }).catch(console.error);
       } else {
-        console.log({
-          width: returnSettings.width,
-          height: returnSettings.height,
-          x: returnSettings.cropModeX,
-          y: returnSettings.cropModeY
-        });
         Jimp.read(`${configuration.folder}/${pathFile}`).then(img => {
           return img
             .cover(returnSettings.width, returnSettings.height, returnSettings.cropModeY ? returnSettings.cropModeY : Jimp.VERTICAL_ALIGN_MIDDLE, returnSettings.cropModeX ? returnSettings.cropModeX : Jimp.HORIZONTAL_ALIGN_CENTER) // resize
