@@ -20,9 +20,9 @@ module.exports = (app, config = {}) => {
     throw new Error('minimal configuration is needed to work properly');
   }
 
-  fs.access(cache, function(err) {
+  fs.access(configuration.cache, function(err) {
   if (err && err.code === 'ENOENT') {
-    fs.mkdir(cache); //Create dir in case not found
+    fs.mkdir(configuration.cache); //Create dir in case not found
   }
 });
 

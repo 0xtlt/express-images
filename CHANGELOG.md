@@ -1,3 +1,7 @@
+# 0.1.2 - Beta (08-30-2020)
+
+- README update
+
 # 0.1.1 - Beta (08-29-2020)
 
 - README update

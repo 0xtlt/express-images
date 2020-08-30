@@ -1,6 +1,6 @@
 {
   "name": "express-images",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Thomas Tastet",
   "description": "resize and crop your images just with a link",
   "main": "express-images.js",
